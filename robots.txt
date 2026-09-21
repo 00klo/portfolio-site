@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+Disallow: /review/
+Disallow: /review-login/
+Disallow: /api/
+
+Disallow: /*.mp4
+Disallow: /*.webm
+Disallow: /*.mov
+Disallow: /*.jpg
+Disallow: /*.jpeg
+Disallow: /*.png
+Disallow: /*.webp
+Disallow: /*.avif
+Disallow: /*.gif

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>镜头笔记｜LIN 个人作品集</title>
+  <meta name="description" content="镜头笔记是 LIN YANG 的影视后期、动态设计与 AIGC 影像个人创作记录。">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="theme-color" content="#050505">
+  <script>
+    try {
+      if (sessionStorage.getItem('portfolioReviewReturn') === 'gallery') {
+        document.documentElement.classList.add('review-return-pending');
+      }
+    } catch {}
+  </script>
+
+
+  <style>
+    html { background: #050505; }
+    html.review-return-pending body {
+      opacity: 0;
+      pointer-events: none;
+      animation: review-return-fallback 1ms 2.5s forwards;
+    }
+    @keyframes review-return-fallback {
+      to { opacity: 1; pointer-events: auto; }
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #050505;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #050505; }
+    ::-webkit-scrollbar-thumb { background: #2a1b3d; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #A855F7; }
+    .static-icp-footer {
+      position: relative;
+      z-index: 10;
+      visibility: hidden;
+      opacity: 0;
+      padding: 0 24px calc(24px + env(safe-area-inset-bottom));
+      background: #000;
+      color: rgba(255, 255, 255, 0.45);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+      transition: opacity 180ms ease;
+      animation: static-icp-fallback 180ms ease 12s forwards;
+    }
+    html.site-intro-complete .static-icp-footer {
+      visibility: visible;
+      opacity: 1;
+      animation: none;
+    }
+    @keyframes static-icp-fallback {
+      to {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    .static-icp-footer a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+    .static-icp-footer a:hover,
+    .static-icp-footer a:focus-visible {
+      color: #CCFF00;
+    }
+  </style>
+  <link rel="preload" href="./assets/site.css?v=cccf4cb6ba" as="style">
+  <link rel="stylesheet" href="./assets/site.css?v=cccf4cb6ba">
+</head>
+<body class="bg-[#050505] text-white">
+
+  <div id="root"></div>
+  <footer class="static-icp-footer" aria-label="网站备案信息">
+    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+      赣ICP备2026023359号-1
+    </a>
+  </footer>
+  <noscript>
+    <style>
+      .static-icp-footer { visibility: visible !important; opacity: 1 !important; animation: none !important; }
+    </style>
+  </noscript>
+<script src="./assets/react.production.min.js" defer></script>
+  <script src="./assets/react-dom.production.min.js" defer></script>
+  <script src="./assets/site.js?v=ad4180f77f" defer></script>
+
+</body>
+</html>

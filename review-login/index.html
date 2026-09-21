@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIGC 受限审阅｜镜头笔记</title>
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <style>
+    :root { color-scheme: dark; background: #030205; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 24px; color: #fff; background: radial-gradient(circle at 50% 0%, rgba(118, 44, 180, .24), transparent 42%), #030205; }
+    main { width: min(100%, 480px); padding: clamp(28px, 6vw, 48px); border: 1px solid rgba(255,255,255,.12); border-radius: 28px; background: rgba(10,6,16,.88); box-shadow: 0 30px 90px rgba(0,0,0,.5), inset 0 1px rgba(255,255,255,.05); }
+    .mark { display: grid; place-items: center; width: 58px; height: 58px; margin-bottom: 28px; border: 1px solid rgba(204,255,0,.3); border-radius: 18px; color: #ccff00; background: rgba(204,255,0,.08); }
+    .eyebrow { margin: 0 0 12px; color: #ccff00; font: 700 11px/1.4 ui-monospace, monospace; letter-spacing: .18em; }
+    h1 { margin: 0; font-size: clamp(32px, 8vw, 52px); line-height: .96; letter-spacing: -.05em; }
+    .intro { margin: 20px 0 28px; color: rgba(255,255,255,.55); font-size: 14px; line-height: 1.8; }
+    label { display: block; margin-bottom: 10px; color: rgba(255,255,255,.72); font-size: 12px; font-weight: 700; }
+    input { width: 100%; min-height: 52px; padding: 0 16px; border: 1px solid rgba(255,255,255,.16); border-radius: 14px; outline: none; color: #fff; background: rgba(255,255,255,.055); font-size: 16px; }
+    input:focus { border-color: rgba(204,255,0,.7); box-shadow: 0 0 0 3px rgba(204,255,0,.1); }
+    button { width: 100%; min-height: 52px; margin-top: 14px; border: 0; border-radius: 999px; color: #050505; background: #ccff00; font: 900 12px/1 ui-monospace, monospace; letter-spacing: .12em; cursor: pointer; }
+    button:disabled { cursor: wait; opacity: .65; }
+    .message { min-height: 22px; margin: 14px 0 0; color: #ff9aa6; font-size: 12px; text-align: center; }
+    .back { display: block; margin-top: 18px; color: rgba(255,255,255,.44); font-size: 12px; text-align: center; text-decoration: none; }
+    .back:hover { color: #ccff00; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+    </div>
+    <p class="eyebrow">MIRROR NOTES / PRIVATE REVIEW</p>
+    <h1>AIGC<br>受限审阅</h1>
+    <p class="intro">仅供受邀招聘人员评估个人制作能力。请输入访问密码进入审阅页面。</p>
+    <form id="login-form">
+      <label for="password">访问密码</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" maxlength="128" required autofocus>
+      <button id="submit-button" type="submit">进入审阅页面 ↗</button>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+    </form>
+    <a id="back-link" class="back" href="/#gallery">← 返回 03 AIGC 审阅</a>
+  </main>
+  <script>
+    const form = document.getElementById('login-form');
+    const passwordInput = document.getElementById('password');
+    const button = document.getElementById('submit-button');
+    const message = document.getElementById('message');
+    const backLink = document.getElementById('back-link');
+    const requestedNext = new URLSearchParams(location.search).get('next') || '/review/aigc/';
+    const nextPath = requestedNext.startsWith('/review/aigc') ? requestedNext : '/review/aigc/';
+
+    backLink.addEventListener('click', event => {
+      const shouldRestoreGallery = sessionStorage.getItem('portfolioReviewReturn') === 'gallery';
+      if (!shouldRestoreGallery || history.length <= 1) return;
+      event.preventDefault();
+      history.back();
+    });
+
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      message.textContent = '';
+      button.disabled = true;
+      button.textContent = '正在验证…';
+
+      try {
+        const response = await fetch('/api/review-login', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: passwordInput.value }),
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || '暂时无法验证密码。');
+        location.replace(nextPath);
+      } catch (error) {
+        message.textContent = error.message;
+        passwordInput.select();
+        button.disabled = false;
+        button.textContent = '进入审阅页面 ↗';
+      }
+    });
+  </script>
+</body>
+</html>
