@@ -257,9 +257,49 @@
       activeToken = null;
       refreshingActiveToken = false;
       player.pause();
+      try { player.currentTime = 0; } catch {}
       player.removeAttribute('src');
       player.load();
       dialog.close();
+    }
+
+    function resetVisiblePlayer() {
+      window.clearTimeout(activeTokenRefreshTimer);
+      player.pause();
+      try { player.currentTime = 0; } catch {}
+    }
+
+    async function restartVisiblePlayer() {
+      if (!activeItem || !dialog.open || document.hidden) return;
+      const restartingId = activeItem.id;
+      try {
+        if (!activeToken || tokenSecondsRemaining(activeToken) <= TOKEN_REFRESH_THRESHOLD_SECONDS) {
+          const token = await requestVideoToken(restartingId, true);
+          if (!activeItem || activeItem.id !== restartingId || !dialog.open) return;
+          applyVideoToken(token, false);
+        } else {
+          try { player.currentTime = 0; } catch {}
+          scheduleActiveTokenRefresh();
+        }
+        try { player.currentTime = 0; } catch {}
+        player.play().catch(() => {});
+      } catch (error) {
+        if (error.message !== '登录已失效。') notice.textContent = error.message;
+      }
+    }
+
+    function handlePlayerVisibility() {
+      if (document.hidden) {
+        resetVisiblePlayer();
+        return;
+      }
+      renewSessionIfNeeded().catch(() => {});
+      restartVisiblePlayer();
+    }
+
+    function handlePlayerPageShow() {
+      renewSessionIfNeeded().catch(() => {});
+      restartVisiblePlayer();
     }
 
     document.getElementById('close-player').addEventListener('click', closePlayer);
@@ -267,16 +307,16 @@
     dialog.addEventListener('cancel', event => { event.preventDefault(); closePlayer(); });
     player.addEventListener('contextmenu', event => event.preventDefault());
     player.addEventListener('seeking', () => {
-      if (activeToken && tokenSecondsRemaining(activeToken) <= TOKEN_REFRESH_THRESHOLD_SECONDS) {
+      if (!document.hidden && activeToken && tokenSecondsRemaining(activeToken) <= TOKEN_REFRESH_THRESHOLD_SECONDS) {
         refreshActiveVideoToken(true);
       }
     });
     player.addEventListener('error', () => {
-      if (activeItem && dialog.open && !refreshingActiveToken) refreshActiveVideoToken(true);
+      if (!document.hidden && activeItem && dialog.open && !refreshingActiveToken) refreshActiveVideoToken(true);
     });
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) renewSessionIfNeeded().catch(() => {});
-    });
+    document.addEventListener('visibilitychange', handlePlayerVisibility);
+    window.addEventListener('pagehide', resetVisiblePlayer);
+    window.addEventListener('pageshow', handlePlayerPageShow);
     window.setInterval(() => renewSessionIfNeeded().catch(() => {}), SESSION_HEARTBEAT_INTERVAL);
 
     document.getElementById('logout').addEventListener('click', async () => {
