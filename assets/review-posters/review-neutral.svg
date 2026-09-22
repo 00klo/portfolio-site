@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">受限 AIGC 影像预览</title>
+  <desc id="desc">不显示品牌、产品名称或角色形象的中性黑色封面。</desc>
+  <defs>
+    <radialGradient id="halo" cx="50%" cy="42%" r="58%">
+      <stop offset="0" stop-color="#24122f"/>
+      <stop offset=".52" stop-color="#0b0710"/>
+      <stop offset="1" stop-color="#030205"/>
+    </radialGradient>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop stop-color="#ccff00" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#ccff00" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#ccff00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#halo)"/>
+  <circle cx="800" cy="415" r="76" fill="#0a0a0d" stroke="#ccff00" stroke-opacity=".42" stroke-width="3"/>
+  <path d="M770 415h60M800 385v60" stroke="#ccff00" stroke-width="3" stroke-linecap="round" opacity=".74"/>
+  <rect x="500" y="536" width="600" height="2" rx="1" fill="url(#line)"/>
+  <text x="800" y="600" fill="#fff" fill-opacity=".64" font-family="Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="8" text-anchor="middle">PRIVATE AIGC REVIEW</text>
+  <text x="800" y="647" fill="#ccff00" fill-opacity=".7" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="5" text-anchor="middle">AI生成/合成内容</text>
+</svg>
