@@ -25,14 +25,35 @@
     .notice { margin-top: 34px; padding: 16px 18px; border: 1px solid rgba(255,193,7,.2); border-radius: 16px; color: rgba(255,235,190,.68); background: rgba(255,174,0,.055); font-size: 12px; line-height: 1.8; }
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(18px, 3vw, 34px); margin-top: 50px; }
     .card { overflow: hidden; border: 1px solid rgba(255,255,255,.1); border-radius: 22px; background: #09060d; box-shadow: 0 24px 55px rgba(0,0,0,.26); }
-    .preview { position: relative; display: block; width: 100%; aspect-ratio: 16/9; padding: 0; border: 0; overflow: hidden; color: #fff; background: #08060b; cursor: pointer; }
-    .preview img { width: 100%; height: 100%; object-fit: cover; transition: transform .65s cubic-bezier(.16,1,.3,1), filter .4s ease; }
-    .preview:hover img { transform: scale(1.025); filter: brightness(1.08); }
-    .preview::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.08) 45%, rgba(0,0,0,.68)); }
-    .expand { position: absolute; z-index: 3; right: 14px; top: 14px; display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; color: rgba(255,255,255,.94); background: rgba(5,5,7,.62); box-shadow: 0 8px 24px rgba(0,0,0,.24); backdrop-filter: blur(10px); cursor: pointer; transition: color .25s ease, background .25s ease, border-color .25s ease, transform .25s ease; }
+    .preview { position: relative; display: block; width: 100%; aspect-ratio: 16/9; padding: 0; border: 0; overflow: hidden; color: #fff; background: #050308; }
+    .preview::after { content: ''; position: absolute; z-index: 3; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.05) 46%, rgba(0,0,0,.58)); transition: opacity .35s ease; }
+    .preview-art { position: absolute; z-index: 2; inset: 0; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(22px, 4vw, 38px); pointer-events: none; background: linear-gradient(135deg, var(--cover-a), var(--cover-b) 58%, #050308); transition: opacity .4s ease, transform .8s cubic-bezier(.16,1,.3,1), visibility .4s; }
+    .preview-art::before { content: ''; position: absolute; z-index: -2; width: 62%; aspect-ratio: 1; right: -6%; top: -30%; border: 1px solid rgba(255,255,255,.26); border-radius: 42% 58% 56% 44%; background: radial-gradient(circle at 34% 32%, rgba(255,255,255,.42), rgba(255,255,255,.06) 28%, transparent 62%); box-shadow: 0 0 90px var(--cover-glow); transform: rotate(-18deg); }
+    .preview-art::after { content: ''; position: absolute; z-index: -1; inset: 0; opacity: .24; background-image: linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 42px 42px; mask-image: linear-gradient(135deg, #000, transparent 72%); }
+    .preview-art--0 { --cover-a: #3a0714; --cover-b: #a51231; --cover-glow: rgba(255,71,111,.36); }
+    .preview-art--1 { --cover-a: #07122d; --cover-b: #243f8f; --cover-glow: rgba(83,139,255,.38); }
+    .preview-art--2 { --cover-a: #250631; --cover-b: #7c195e; --cover-glow: rgba(238,79,196,.36); }
+    .preview-art--3 { --cover-a: #2b1604; --cover-b: #8d4d10; --cover-glow: rgba(255,174,65,.36); }
+    .preview-art--4 { --cover-a: #061f1c; --cover-b: #0b6d5d; --cover-glow: rgba(63,244,207,.32); }
+    .preview-index { margin-bottom: auto; color: rgba(255,255,255,.56); font: 800 9px/1 ui-monospace, monospace; letter-spacing: .22em; }
+    .preview-title { max-width: 74%; margin: 0; font-size: clamp(18px, 2.5vw, 29px); line-height: 1.04; letter-spacing: -.035em; text-shadow: 0 8px 28px rgba(0,0,0,.42); }
+    .preview-meta { margin-top: 10px; color: rgba(255,255,255,.58); font: 700 8px/1 ui-monospace, monospace; letter-spacing: .18em; }
+    .preview:hover .preview-art { transform: scale(1.018); }
+    .preview.is-playing.has-frame .preview-art { visibility: hidden; opacity: 0; transform: scale(1.03); }
+    .preview.is-playing.has-frame::after { opacity: 0; }
+    .inline-player { position: absolute; z-index: 1; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+    .inline-player[hidden] { display: none; }
+    .play-inline { position: absolute; z-index: 6; left: 50%; top: 50%; display: grid; place-items: center; width: 66px; height: 66px; padding: 0; border: 1px solid rgba(255,255,255,.7); border-radius: 50%; color: #080808; background: rgba(255,255,255,.94); box-shadow: 0 12px 42px rgba(0,0,0,.42), 0 0 0 8px rgba(255,255,255,.07); transform: translate(-50%, -50%); cursor: pointer; transition: transform .28s cubic-bezier(.16,1,.3,1), background .25s ease, box-shadow .25s ease; }
+    .play-inline:hover { background: #ccff00; box-shadow: 0 14px 48px rgba(0,0,0,.46), 0 0 0 9px rgba(204,255,0,.11); transform: translate(-50%, -50%) scale(1.07); }
+    .play-inline:focus-visible { outline: 2px solid #ccff00; outline-offset: 4px; }
+    .play-inline svg { width: 24px; height: 24px; margin-left: 3px; }
+    .play-inline[aria-busy="true"] svg { animation: playPulse .8s ease-in-out infinite alternate; }
+    .play-inline[hidden] { display: none; }
+    @keyframes playPulse { to { opacity: .35; transform: scale(.82); } }
+    .expand { position: absolute; z-index: 7; right: 14px; top: 14px; display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; color: rgba(255,255,255,.94); background: rgba(5,5,7,.62); box-shadow: 0 8px 24px rgba(0,0,0,.24); backdrop-filter: blur(10px); cursor: pointer; transition: color .25s ease, background .25s ease, border-color .25s ease, transform .25s ease; }
     .expand svg { width: 17px; height: 17px; }
     .preview:hover .expand, .preview:focus-visible .expand { color: #050505; background: rgba(255,255,255,.94); border-color: rgba(255,255,255,.94); transform: scale(1.04); }
-    .badges { position: absolute; z-index: 2; left: 16px; top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .badges { position: absolute; z-index: 5; left: 16px; top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
     .badge { padding: 7px 9px; border: 1px solid rgba(204,255,0,.28); border-radius: 999px; color: #ccff00; background: rgba(5,5,5,.68); font: 800 8px/1 ui-monospace, monospace; letter-spacing: .1em; backdrop-filter: blur(10px); }
     .badge.alt { border-color: rgba(255,205,130,.3); color: #ffe0a8; }
     .copy { padding: 22px 22px 25px; }
@@ -40,6 +61,7 @@
     .copy p { margin: 12px 0 0; color: rgba(255,255,255,.46); font-size: 12px; line-height: 1.75; }
     .loading, .error { margin-top: 50px; padding: 42px 20px; border: 1px solid rgba(255,255,255,.09); border-radius: 22px; color: rgba(255,255,255,.5); text-align: center; }
     dialog { width: min(1120px, calc(100% - 24px)); max-height: calc(100svh - 24px); padding: 0; border: 1px solid rgba(255,255,255,.15); border-radius: 20px; overflow: hidden; color: #fff; background: #050505; box-shadow: 0 50px 140px rgba(0,0,0,.78); }
+    dialog[open] { display: flex; flex-direction: column; }
     dialog::backdrop { background: rgba(0,0,0,.82); backdrop-filter: blur(12px); }
     dialog video { display: block; width: 100%; max-height: calc(100svh - 78px); background: #000; }
     .modal-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.1); }
@@ -51,12 +73,13 @@
       .grid { grid-template-columns: 1fr; }
       .session { display: none; }
       h1 { line-height: .9; }
-      dialog { width: 100%; max-width: none; max-height: 100svh; margin: 0; border-width: 0; border-radius: 0; }
-      dialog video { max-height: calc(100svh - 60px); }
-      .modal-bar { min-height: 60px; padding: 10px 12px; }
+      dialog { width: 100%; max-width: none; height: 100svh; max-height: 100svh; margin: 0; border-width: 0; border-radius: 0; }
+      dialog video { width: 100%; height: auto; max-height: calc(100svh - 60px); margin-block: auto; object-fit: contain; }
+      .modal-bar { position: absolute; z-index: 2; top: 0; left: 0; right: 0; min-height: 60px; padding: 10px 12px; background: linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,.35)); }
       .modal-heading { gap: 8px; }
       .modal-title { font-size: 12px; }
       .modal-ident { padding: 5px 7px; font-size: 7px; }
+      .play-inline { width: 62px; height: 62px; }
     }
   </style>
 </head>
@@ -104,6 +127,13 @@
     let activeTokenRefreshTimer = 0;
     let lastSessionActivity = Date.now();
     let refreshingActiveToken = false;
+    let inlineItem = null;
+    let inlineToken = null;
+    let inlinePlayer = null;
+    let inlinePreview = null;
+    let inlineTokenRefreshTimer = 0;
+    let refreshingInlineToken = false;
+    let inlineRequestId = 0;
     const isEmbedded = new URLSearchParams(location.search).get('embedded') === '1';
     if (isEmbedded) document.body.classList.add('is-embedded');
 
@@ -205,7 +235,117 @@
       }
     }
 
+    function stopInlinePlayback() {
+      inlineRequestId += 1;
+      window.clearTimeout(inlineTokenRefreshTimer);
+      const previousPreview = inlinePreview;
+      const previousPlayer = inlinePlayer;
+      if (previousPlayer) {
+        previousPlayer.pause();
+        try { previousPlayer.currentTime = 0; } catch {}
+        previousPlayer.removeAttribute('src');
+        previousPlayer.load();
+        previousPlayer.hidden = true;
+      }
+      if (previousPreview) {
+        previousPreview.classList.remove('is-playing', 'has-frame');
+        const playButton = previousPreview.querySelector('.play-inline');
+        if (playButton) {
+          playButton.hidden = false;
+          playButton.disabled = false;
+          playButton.removeAttribute('aria-busy');
+        }
+      }
+      inlineItem = null;
+      inlineToken = null;
+      inlinePlayer = null;
+      inlinePreview = null;
+      refreshingInlineToken = false;
+    }
+
+    function scheduleInlineTokenRefresh() {
+      window.clearTimeout(inlineTokenRefreshTimer);
+      if (!inlineItem || !inlineToken || !inlinePlayer || inlinePlayer.hidden) return;
+      const delay = Math.max(1000, (tokenSecondsRemaining(inlineToken) - TOKEN_REFRESH_THRESHOLD_SECONDS) * 1000);
+      inlineTokenRefreshTimer = window.setTimeout(() => refreshInlineVideoToken(true), delay);
+    }
+
+    function applyInlineVideoToken(token, preservePosition = false) {
+      if (!inlinePlayer) return;
+      const targetPlayer = inlinePlayer;
+      const previousTime = preservePosition && Number.isFinite(targetPlayer.currentTime) ? targetPlayer.currentTime : 0;
+      const shouldResume = preservePosition && !targetPlayer.paused && !targetPlayer.ended;
+      inlineToken = token;
+      targetPlayer.src = token.videoUrl;
+      targetPlayer.load();
+      if (preservePosition) {
+        targetPlayer.addEventListener('loadedmetadata', () => {
+          if (previousTime > 0 && Number.isFinite(targetPlayer.duration)) {
+            targetPlayer.currentTime = Math.min(previousTime, Math.max(0, targetPlayer.duration - 0.25));
+          }
+          if (shouldResume) targetPlayer.play().catch(() => {});
+        }, { once: true });
+      }
+      scheduleInlineTokenRefresh();
+    }
+
+    async function refreshInlineVideoToken(force = false) {
+      if (!inlineItem || !inlinePlayer || inlinePlayer.hidden || refreshingInlineToken) return;
+      if (!force && tokenSecondsRemaining(inlineToken) > TOKEN_REFRESH_THRESHOLD_SECONDS) {
+        scheduleInlineTokenRefresh();
+        return;
+      }
+      refreshingInlineToken = true;
+      const refreshingId = inlineItem.id;
+      try {
+        const token = await requestVideoToken(refreshingId, true);
+        if (!inlineItem || inlineItem.id !== refreshingId || !inlinePlayer || inlinePlayer.hidden) return;
+        applyInlineVideoToken(token, true);
+      } catch (error) {
+        if (error.message !== '登录已失效。') {
+          window.clearTimeout(inlineTokenRefreshTimer);
+          inlineTokenRefreshTimer = window.setTimeout(() => refreshInlineVideoToken(true), 30 * 1000);
+        }
+      } finally {
+        refreshingInlineToken = false;
+      }
+    }
+
+    async function playInlineVideo(item, button) {
+      stopInlinePlayback();
+      if (dialog.open) closePlayer();
+      const requestId = ++inlineRequestId;
+      const preview = button.closest('.preview');
+      const video = preview?.querySelector('.inline-player');
+      if (!preview || !video) return;
+      button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
+      try {
+        const token = await requestVideoToken(item.id);
+        if (requestId !== inlineRequestId) return;
+        inlineItem = item;
+        inlinePlayer = video;
+        inlinePreview = preview;
+        preview.classList.add('is-playing');
+        video.hidden = false;
+        button.hidden = true;
+        applyInlineVideoToken(token);
+        video.play().catch(() => {});
+        if (window.matchMedia('(max-width: 760px)').matches) {
+          window.requestAnimationFrame(() => preview.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+        }
+      } catch (error) {
+        if (requestId === inlineRequestId && error.message !== '登录已失效。') notice.textContent = error.message;
+      } finally {
+        if (requestId === inlineRequestId) {
+          button.disabled = false;
+          button.removeAttribute('aria-busy');
+        }
+      }
+    }
+
     async function openVideo(item, button) {
+      stopInlinePlayback();
       button.disabled = true;
       button.setAttribute('aria-busy', 'true');
       try {
@@ -228,17 +368,49 @@
       grid.innerHTML = items.map((item, index) => `
         <article class="card" data-ai-generated="true">
           <div class="preview">
-            <img src="${escapeHtml(item.posterUrl)}" alt="" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async">
+            <video class="inline-player" data-index="${index}" data-ai-generated="true" controls controlsList="nodownload noremoteplayback" disablePictureInPicture playsinline preload="metadata" aria-label="${escapeHtml(item.title)}" hidden></video>
+            <div class="preview-art preview-art--${index % 5}" aria-hidden="true">
+              <span class="preview-index">PRIVATE SCREENING / ${String(index + 1).padStart(2, '0')}</span>
+              <strong class="preview-title">${escapeHtml(item.title)}</strong>
+              <span class="preview-meta">AIGC MOTION STUDY · PRESS PLAY</span>
+            </div>
             <span class="badges"><span class="badge">AI生成/合成内容</span>${item.unofficial ? '<span class="badge alt">非官方个人练习</span>' : ''}</span>
+            <button class="play-inline" type="button" data-index="${index}" aria-label="在页面播放 ${escapeHtml(item.title)}"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg></button>
             <button class="expand" type="button" data-index="${index}" data-media-expand="true" aria-label="放大播放 ${escapeHtml(item.title)}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M3 16v5h5M21 16v5h-5"/></svg></button>
           </div>
           <div class="copy"><h2>${escapeHtml(item.title)}</h2><p>${escapeHtml(item.description)}</p></div>
         </article>
       `).join('');
 
+      grid.querySelectorAll('.play-inline').forEach(button => {
+        button.addEventListener('click', () => playInlineVideo(items[Number(button.dataset.index)], button));
+      });
+
       grid.querySelectorAll('.expand').forEach(button => {
         button.addEventListener('click', () => openVideo(items[Number(button.dataset.index)], button));
       });
+
+      grid.querySelectorAll('.inline-player').forEach(video => {
+        video.addEventListener('playing', () => video.closest('.preview')?.classList.add('has-frame'));
+        video.addEventListener('contextmenu', event => event.preventDefault());
+        video.addEventListener('seeking', () => {
+          if (video === inlinePlayer && inlineToken && tokenSecondsRemaining(inlineToken) <= TOKEN_REFRESH_THRESHOLD_SECONDS) {
+            refreshInlineVideoToken(true);
+          }
+        });
+        video.addEventListener('error', () => {
+          if (video === inlinePlayer && inlineItem && !refreshingInlineToken) refreshInlineVideoToken(true);
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        const inlineVisibilityObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.target === inlinePreview && !entry.isIntersecting) stopInlinePlayback();
+          });
+        }, { threshold: 0.08 });
+        grid.querySelectorAll('.preview').forEach(preview => inlineVisibilityObserver.observe(preview));
+      }
     }
 
     async function loadLibrary() {
@@ -306,6 +478,7 @@
     function handlePlayerVisibility() {
       if (document.hidden) {
         resetVisiblePlayer();
+        stopInlinePlayback();
         return;
       }
       renewSessionIfNeeded().catch(() => {});
@@ -315,6 +488,11 @@
     function handlePlayerPageShow() {
       renewSessionIfNeeded().catch(() => {});
       restartVisiblePlayer();
+    }
+
+    function handlePlayerPageHide() {
+      resetVisiblePlayer();
+      stopInlinePlayback();
     }
 
     document.getElementById('close-player').addEventListener('click', closePlayer);
@@ -330,11 +508,12 @@
       if (!document.hidden && activeItem && dialog.open && !refreshingActiveToken) refreshActiveVideoToken(true);
     });
     document.addEventListener('visibilitychange', handlePlayerVisibility);
-    window.addEventListener('pagehide', resetVisiblePlayer);
+    window.addEventListener('pagehide', handlePlayerPageHide);
     window.addEventListener('pageshow', handlePlayerPageShow);
     window.setInterval(() => renewSessionIfNeeded().catch(() => {}), SESSION_HEARTBEAT_INTERVAL);
 
     document.getElementById('logout').addEventListener('click', async () => {
+      stopInlinePlayback();
       await fetch('/api/review-logout', { method: 'POST', credentials: 'same-origin' }).catch(() => {});
       tokenCache.clear();
       if (isEmbedded) {
