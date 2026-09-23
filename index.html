@@ -67,6 +67,27 @@
       text-decoration: none;
       transition: color 180ms ease;
     }
+    .static-icp-footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 12px;
+    }
+    .static-icp-footer__separator {
+      color: rgba(255, 255, 255, 0.2);
+    }
+    .static-icp-footer__police {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .static-icp-footer__badge {
+      width: 16px;
+      height: 18px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
     .static-icp-footer a:hover,
     .static-icp-footer a:focus-visible {
       color: #CCFF00;
@@ -79,9 +100,16 @@
 
   <div id="root"></div>
   <footer class="static-icp-footer" aria-label="网站备案信息">
-    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
-      赣ICP备2026023359号-1
-    </a>
+    <div class="static-icp-footer__links">
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+        赣ICP备2026023359号-1
+      </a>
+      <span class="static-icp-footer__separator" aria-hidden="true">·</span>
+      <a class="static-icp-footer__police" href="https://beian.mps.gov.cn/#/query/webSearch?code=36073402000135" target="_blank" rel="noopener noreferrer">
+        <img class="static-icp-footer__badge" src="./assets/gongan-beian.png" alt="" width="16" height="18">
+        赣公网安备36073402000135号
+      </a>
+    </div>
   </footer>
   <noscript>
     <style>
