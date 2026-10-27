@@ -1,0 +1,256 @@
+{
+  "collections": [
+    {
+      "id": "plush-knit",
+      "name": "毛绒针织",
+      "kind": "sheet",
+      "src": "./assets/hero/textile-cycles-v1/knit-series.webp",
+      "width": 1254,
+      "height": 1254,
+      "letters": [
+        {
+          "character": "H",
+          "x": 35,
+          "y": 36,
+          "width": 277,
+          "height": 271
+        },
+        {
+          "character": "e",
+          "x": 363,
+          "y": 72,
+          "width": 218,
+          "height": 238
+        },
+        {
+          "character": "l",
+          "x": 705,
+          "y": 23,
+          "width": 150,
+          "height": 287
+        },
+        {
+          "character": "l",
+          "x": 1019,
+          "y": 23,
+          "width": 160,
+          "height": 286
+        },
+        {
+          "character": "o",
+          "x": 37,
+          "y": 359,
+          "width": 267,
+          "height": 254
+        },
+        {
+          "character": ",",
+          "x": 429,
+          "y": 429,
+          "width": 90,
+          "height": 135
+        },
+        {
+          "character": "I",
+          "x": 686,
+          "y": 329,
+          "width": 192,
+          "height": 282
+        },
+        {
+          "character": "’",
+          "x": 1060,
+          "y": 380,
+          "width": 97,
+          "height": 149
+        },
+        {
+          "character": "m",
+          "x": 26,
+          "y": 687,
+          "width": 291,
+          "height": 216
+        },
+        {
+          "character": "L",
+          "x": 358,
+          "y": 635,
+          "width": 249,
+          "height": 268
+        },
+        {
+          "character": "i",
+          "x": 724,
+          "y": 631,
+          "width": 120,
+          "height": 278
+        },
+        {
+          "character": "n",
+          "x": 981,
+          "y": 681,
+          "width": 240,
+          "height": 226
+        },
+        {
+          "character": "Y",
+          "x": 27,
+          "y": 930,
+          "width": 288,
+          "height": 285
+        },
+        {
+          "character": "a",
+          "x": 353,
+          "y": 959,
+          "width": 249,
+          "height": 250
+        },
+        {
+          "character": "n",
+          "x": 666,
+          "y": 972,
+          "width": 245,
+          "height": 236
+        },
+        {
+          "character": "g",
+          "x": 970,
+          "y": 935,
+          "width": 245,
+          "height": 299
+        }
+      ],
+      "file": "knit-series.webp",
+      "sourceSha256": "75bb77d841e40eb401cd09969d0a15b11da0c24c546e41e2a008d137768731b4",
+      "bytes": 396736,
+      "origin": "Built-in image_gen; original transparent artwork, WebP encoding only."
+    },
+    {
+      "id": "cartoon-creatures",
+      "name": "卡通小怪兽",
+      "kind": "sheet",
+      "src": "./assets/hero/textile-cycles-v1/creature-series.webp",
+      "width": 1254,
+      "height": 1254,
+      "letters": [
+        {
+          "character": "H",
+          "x": 43,
+          "y": 18,
+          "width": 303,
+          "height": 303
+        },
+        {
+          "character": "e",
+          "x": 398,
+          "y": 61,
+          "width": 212,
+          "height": 258
+        },
+        {
+          "character": "l",
+          "x": 709,
+          "y": 17,
+          "width": 137,
+          "height": 302
+        },
+        {
+          "character": "l",
+          "x": 985,
+          "y": 23,
+          "width": 168,
+          "height": 296
+        },
+        {
+          "character": "o",
+          "x": 65,
+          "y": 333,
+          "width": 246,
+          "height": 277
+        },
+        {
+          "character": ",",
+          "x": 431,
+          "y": 390,
+          "width": 149,
+          "height": 203
+        },
+        {
+          "character": "I",
+          "x": 677,
+          "y": 337,
+          "width": 208,
+          "height": 272
+        },
+        {
+          "character": "’",
+          "x": 1020,
+          "y": 357,
+          "width": 144,
+          "height": 213
+        },
+        {
+          "character": "m",
+          "x": 31,
+          "y": 636,
+          "width": 333,
+          "height": 265
+        },
+        {
+          "character": "L",
+          "x": 406,
+          "y": 608,
+          "width": 238,
+          "height": 294
+        },
+        {
+          "character": "i",
+          "x": 710,
+          "y": 614,
+          "width": 132,
+          "height": 290
+        },
+        {
+          "character": "n",
+          "x": 946,
+          "y": 636,
+          "width": 278,
+          "height": 265
+        },
+        {
+          "character": "Y",
+          "x": 29,
+          "y": 902,
+          "width": 311,
+          "height": 320
+        },
+        {
+          "character": "a",
+          "x": 361,
+          "y": 919,
+          "width": 261,
+          "height": 299
+        },
+        {
+          "character": "n",
+          "x": 650,
+          "y": 921,
+          "width": 287,
+          "height": 295
+        },
+        {
+          "character": "g",
+          "x": 971,
+          "y": 909,
+          "width": 235,
+          "height": 315
+        }
+      ],
+      "file": "creature-series.webp",
+      "sourceSha256": "9af3ef08841b0bde29160fc8c3586b80ba34c98921236a5e2ff047e197d6d75b",
+      "bytes": 308572,
+      "origin": "Built-in image_gen; original transparent artwork, WebP encoding only."
+    }
+  ]
+}
