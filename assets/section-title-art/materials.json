@@ -1,0 +1,139 @@
+{
+  "id": "section-characters-v1",
+  "name": "独立角色字母",
+  "src": "./assets/section-title-art/character-alphabet-v1.webp",
+  "width": 1402,
+  "height": 1122,
+  "letters": [
+    {
+      "character": "A",
+      "x": 48,
+      "y": 32,
+      "width": 247,
+      "height": 253
+    },
+    {
+      "character": "C",
+      "x": 316,
+      "y": 32,
+      "width": 250,
+      "height": 255
+    },
+    {
+      "character": "E",
+      "x": 581,
+      "y": 33,
+      "width": 227,
+      "height": 254
+    },
+    {
+      "character": "G",
+      "x": 841,
+      "y": 33,
+      "width": 246,
+      "height": 252
+    },
+    {
+      "character": "H",
+      "x": 1112,
+      "y": 45,
+      "width": 262,
+      "height": 240
+    },
+    {
+      "character": "I",
+      "x": 93,
+      "y": 297,
+      "width": 155,
+      "height": 256
+    },
+    {
+      "character": "J",
+      "x": 327,
+      "y": 293,
+      "width": 219,
+      "height": 262
+    },
+    {
+      "character": "L",
+      "x": 578,
+      "y": 301,
+      "width": 232,
+      "height": 254
+    },
+    {
+      "character": "M",
+      "x": 835,
+      "y": 306,
+      "width": 255,
+      "height": 247
+    },
+    {
+      "character": "N",
+      "x": 1111,
+      "y": 302,
+      "width": 261,
+      "height": 253
+    },
+    {
+      "character": "O",
+      "x": 43,
+      "y": 561,
+      "width": 255,
+      "height": 255
+    },
+    {
+      "character": "P",
+      "x": 310,
+      "y": 562,
+      "width": 230,
+      "height": 255
+    },
+    {
+      "character": "R",
+      "x": 564,
+      "y": 566,
+      "width": 260,
+      "height": 254
+    },
+    {
+      "character": "S",
+      "x": 860,
+      "y": 558,
+      "width": 229,
+      "height": 269
+    },
+    {
+      "character": "U",
+      "x": 1108,
+      "y": 569,
+      "width": 269,
+      "height": 250
+    },
+    {
+      "character": "V",
+      "x": 51,
+      "y": 833,
+      "width": 244,
+      "height": 239
+    },
+    {
+      "character": "W",
+      "x": 294,
+      "y": 839,
+      "width": 285,
+      "height": 229
+    },
+    {
+      "character": "X",
+      "x": 583,
+      "y": 830,
+      "width": 249,
+      "height": 240
+    }
+  ],
+  "file": "character-alphabet-v1.webp",
+  "bytes": 378934,
+  "sourceSha256": "e166025db134a0e6617e2a6e47fbb74a8880297ca85b65dd068afc178d330619",
+  "origin": "Built-in image_gen. Genuine transparent character alphabet; encoding and alpha geometry only."
+}
