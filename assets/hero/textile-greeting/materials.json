@@ -1,0 +1,247 @@
+{
+  "text": "HELLO, I’M LIN YANG",
+  "source": "ChatGPT 图像 2026年10月26日 21_48_51.png",
+  "sourceSha256": "72dceb4631a1ae89b0a2e5529c79b6f731b097bff3a149f92e9227d02e3fcaf6",
+  "letters": [
+    {
+      "position": 0,
+      "character": "H",
+      "file": "00-h.webp",
+      "width": 314,
+      "height": 346,
+      "sourceBounds": [
+        27,
+        51,
+        323,
+        379
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 1,
+      "character": "E",
+      "file": "01-e.webp",
+      "width": 208,
+      "height": 314,
+      "sourceBounds": [
+        335,
+        80,
+        525,
+        376
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 2,
+      "character": "L",
+      "file": "02-l.webp",
+      "width": 209,
+      "height": 324,
+      "sourceBounds": [
+        534,
+        70,
+        725,
+        376
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 3,
+      "character": "L",
+      "file": "03-l.webp",
+      "width": 221,
+      "height": 330,
+      "sourceBounds": [
+        732,
+        69,
+        935,
+        381
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 4,
+      "character": "O",
+      "file": "04-o.webp",
+      "width": 352,
+      "height": 336,
+      "sourceBounds": [
+        900,
+        68,
+        1234,
+        386
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 5,
+      "character": ",",
+      "file": "05-comma.webp",
+      "width": 106,
+      "height": 159,
+      "sourceBounds": [
+        1235,
+        257,
+        1323,
+        398
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 6,
+      "character": "I",
+      "file": "06-i.webp",
+      "width": 178,
+      "height": 332,
+      "sourceBounds": [
+        1366,
+        73,
+        1526,
+        387
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 7,
+      "character": "’",
+      "file": "07-apostrophe.webp",
+      "width": 85,
+      "height": 128,
+      "sourceBounds": [
+        1542,
+        63,
+        1609,
+        173
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 8,
+      "character": "M",
+      "file": "08-m.webp",
+      "width": 347,
+      "height": 296,
+      "sourceBounds": [
+        1592,
+        96,
+        1921,
+        374
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 9,
+      "character": "L",
+      "file": "09-l.webp",
+      "width": 221,
+      "height": 328,
+      "sourceBounds": [
+        98,
+        440,
+        301,
+        750
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 10,
+      "character": "I",
+      "file": "10-i.webp",
+      "width": 214,
+      "height": 379,
+      "sourceBounds": [
+        292,
+        392,
+        488,
+        753
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 11,
+      "character": "N",
+      "file": "11-n.webp",
+      "width": 290,
+      "height": 322,
+      "sourceBounds": [
+        462,
+        451,
+        734,
+        755
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 12,
+      "character": "Y",
+      "file": "12-y.webp",
+      "width": 291,
+      "height": 331,
+      "sourceBounds": [
+        800,
+        442,
+        1073,
+        755
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 13,
+      "character": "A",
+      "file": "13-a.webp",
+      "width": 316,
+      "height": 323,
+      "sourceBounds": [
+        1003,
+        450,
+        1301,
+        755
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 14,
+      "character": "N",
+      "file": "14-n.webp",
+      "width": 286,
+      "height": 317,
+      "sourceBounds": [
+        1310,
+        454,
+        1578,
+        753
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    },
+    {
+      "position": 15,
+      "character": "G",
+      "file": "15-g.webp",
+      "width": 306,
+      "height": 340,
+      "sourceBounds": [
+        1583,
+        444,
+        1871,
+        766
+      ],
+      "variants": 1,
+      "origin": "User-provided artwork, cropped only; no generated variants."
+    }
+  ]
+}
