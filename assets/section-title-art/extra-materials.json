@@ -1,0 +1,34 @@
+{
+  "id": "section-characters-extra-v1",
+  "name": "角色字母补充 D T &",
+  "src": "./assets/section-title-art/character-extra-v1.webp",
+  "width": 2172,
+  "height": 724,
+  "letters": [
+    {
+      "character": "D",
+      "x": 102,
+      "y": 47,
+      "width": 675,
+      "height": 639
+    },
+    {
+      "character": "T",
+      "x": 780,
+      "y": 54,
+      "width": 624,
+      "height": 631
+    },
+    {
+      "character": "&",
+      "x": 1467,
+      "y": 48,
+      "width": 610,
+      "height": 642
+    }
+  ],
+  "file": "character-extra-v1.webp",
+  "bytes": 218924,
+  "sourceSha256": "2fa8d30c39d3843b10f26776faece5f0cba0ee0de46b96742ca676f3325f5f5e",
+  "origin": "Built-in image_gen; original transparent artwork, alpha bounds only."
+}
