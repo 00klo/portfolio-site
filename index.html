@@ -130,9 +130,13 @@
     .static-icp-footer a:focus-visible {
       color: #CCFF00;
     }
-  </style>
-  <link rel="preload" href="./assets/site.css?v=90d9284085" as="style">
-  <link rel="stylesheet" href="./assets/site.css?v=90d9284085">
+
+      /* Animate only the media so sound and expand controls stay aligned. */
+      .aigc-gallery-card__preview > img, .aigc-gallery-card__preview > video { opacity: .85; transition: transform 700ms, opacity 700ms; }
+      .group:hover > .aigc-gallery-card__preview > img, .group:hover > .aigc-gallery-card__preview > video { transform: scale(1.025); opacity: 1; }
+</style>
+  <link rel="preload" href="./assets/site.css?v=575ce52458" as="style">
+  <link rel="stylesheet" href="./assets/site.css?v=575ce52458">
 </head>
 <body class="bg-[#050505] text-white">
 
@@ -157,9 +161,9 @@
 <script src="./assets/react.production.min.js" defer></script>
   <script src="./assets/react-dom.production.min.js" defer></script>
   <script src="./assets/hero/pattern-waves.js?v=8b608efc09" defer></script>
-  <script src="./assets/hero/text-image-greeting.js?v=394ca8a17c" defer></script>
+  <script src="./assets/hero/text-image-greeting.js?v=a3bc8b58c9" defer></script>
   <script src="./assets/hero/nav-glass-surface.js?v=66117b0109" defer></script>
-  <script src="./assets/site.js?v=4225d476a6" defer></script>
+  <script src="./assets/site.js?v=65dc84e009" defer></script>
 
 </body>
 </html>
