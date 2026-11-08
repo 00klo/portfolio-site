@@ -90,8 +90,9 @@
     .return-projects{display:flex;align-items:center;justify-content:space-between;gap:25px;color:var(--ink);padding-block:8px 30px}
     .return-projects p{font-size:11px;color:var(--muted);letter-spacing:.12em;margin-bottom:8px}
     .return-projects strong{font-size:clamp(27px,4vw,48px);font-weight:400;letter-spacing:-.04em;line-height:1.3}
-    .return-projects .return-arrow{display:grid;place-items:center;flex-shrink:0;width:55px;height:55px;border:1px solid #52525d;border-radius:50%;font-size:27px;transition:background .2s,color .2s,border-color .2s}
-    .return-projects:hover .return-arrow{background:var(--accent);border-color:var(--accent);color:#070709}
+    .return-projects .return-arrow{display:grid;place-items:center;flex-shrink:0;width:36px;height:36px;border:0;border-radius:50%;background:#2c2c31;color:#e1e1e5;transition:background .18s,color .18s}
+    .return-arrow svg{display:block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .return-projects:hover .return-arrow{background:#38383f;color:#fff}
     .footer-meta{display:flex;justify-content:space-between;gap:20px;padding-top:24px;border-top:1px solid var(--rule);font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#777783;font-size:10px;letter-spacing:.06em}
     @media(max-width:800px){
       .intro{grid-template-columns:1fr;gap:35px;padding-block:45px 50px}
@@ -138,7 +139,6 @@
       .poster-grid figcaption{font-size:11px}
       .poster-grid figcaption span{font-size:9px}
       .footer-meta{flex-direction:column;gap:7px;font-size:9px}
-      .return-projects .return-arrow{width:45px;height:45px;font-size:23px}
     }
     .project-entry-enabled .hero-topline,
     .project-entry-enabled .hero-heading h1,
@@ -222,7 +222,7 @@
         </div>
         <p class="end-note">从像素主视觉出发，将角色、海报、空间效果图与周边延展为统一系列，并以五个静态分镜呈现动态开场的视觉节奏。</p>
       </section>
-      <footer class="project-footer"><a class="return-projects" href="../#visual-projects"><div><p>BACK TO SELECTED WORKS</p><strong>回到作品集，继续探索。</strong></div><span class="return-arrow" aria-hidden="true">↖</span></a><div class="footer-meta"><span>PIXEL WORLD / EXHIBITION IDENTITY</span><span>© 2026 LIN YANG · 个人概念项目</span></div></footer>
+      <footer class="project-footer"><a class="return-projects" href="../#visual-projects"><div><p>BACK TO SELECTED WORKS</p><strong>回到作品集，继续探索。</strong></div><span class="return-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 6 9 12 15 18"/></svg></span></a><div class="footer-meta"><span>PIXEL WORLD / EXHIBITION IDENTITY</span><span>© 2026 LIN YANG · 个人概念项目</span></div></footer>
     </div>
   </main>
   <script>
