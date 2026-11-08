@@ -132,11 +132,12 @@
     }
 
       /* Animate only the media so sound and expand controls stay aligned. */
-      .aigc-gallery-card__preview > img, .aigc-gallery-card__preview > video { opacity: .85; transition: transform 700ms, opacity 700ms; }
-      .group:hover > .aigc-gallery-card__preview > img, .group:hover > .aigc-gallery-card__preview > video { transform: scale(1.025); opacity: 1; }
+      .aigc-gallery-card__preview { overflow: hidden; }
+      .aigc-gallery-card__preview > img, .aigc-gallery-card__preview > video { opacity: 1; filter: brightness(.85); transition: transform 700ms, filter 700ms; }
+      .group:hover > .aigc-gallery-card__preview > img, .group:hover > .aigc-gallery-card__preview > video { transform: scale(1.025); filter: brightness(1); }
 </style>
-  <link rel="preload" href="./assets/site.css?v=881b100a0e" as="style">
-  <link rel="stylesheet" href="./assets/site.css?v=881b100a0e">
+  <link rel="preload" href="./assets/site.css?v=02c3311c4e" as="style">
+  <link rel="stylesheet" href="./assets/site.css?v=02c3311c4e">
 </head>
 <body class="bg-[#050505] text-white">
 
@@ -163,7 +164,7 @@
   <script src="./assets/hero/pattern-waves.js?v=8b608efc09" defer></script>
   <script src="./assets/hero/text-image-greeting.js?v=a3bc8b58c9" defer></script>
   <script src="./assets/hero/nav-glass-surface.js?v=66117b0109" defer></script>
-  <script src="./assets/site.js?v=04c3b0f69d" defer></script>
+  <script src="./assets/site.js?v=c81632c3c9" defer></script>
 
 </body>
 </html>
