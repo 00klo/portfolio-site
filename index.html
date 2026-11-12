@@ -41,11 +41,22 @@
     });
   </script>
   <script>
-    if (['#project-pixel-world', '#project-ai-posters'].includes(window.location.hash)) {
+    const pageNavigation = performance.getEntriesByType?.('navigation')[0];
+    const isPageReload = pageNavigation ? pageNavigation.type === 'reload' : performance.navigation?.type === 1;
+    if (isPageReload) {
+      // Start a reload at the homepage before reading any chapter or project route.
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      const homeUrl = new URL(window.location.href);
+      homeUrl.hash = '';
+      history.replaceState(null, '', homeUrl);
+    } else if (['#project-pixel-world', '#project-ai-posters'].includes(window.location.hash)) {
       document.documentElement.classList.add('project-route-pending');
     }
     try {
-      if (sessionStorage.getItem('portfolioReviewReturn') === 'gallery') {
+      if (isPageReload) {
+        sessionStorage.removeItem('portfolioReviewReturn');
+        sessionStorage.removeItem('portfolioReviewScrollY');
+      } else if (sessionStorage.getItem('portfolioReviewReturn') === 'gallery') {
         document.documentElement.classList.add('review-return-pending');
       }
     } catch {}
@@ -164,7 +175,7 @@
   <script src="./assets/hero/pattern-waves.js?v=0b470b080c" defer></script>
   <script src="./assets/hero/text-image-greeting.js?v=92af59d4cf" defer></script>
   <script src="./assets/hero/nav-glass-surface.js?v=66117b0109" defer></script>
-  <script src="./assets/site.js?v=62f71de8a3" defer></script>
+  <script src="./assets/site.js?v=e354c5cc3c" defer></script>
 
 </body>
 </html>
