@@ -43,7 +43,9 @@
   <script>
     const pageNavigation = performance.getEntriesByType?.('navigation')[0];
     const isPageReload = pageNavigation ? pageNavigation.type === 'reload' : performance.navigation?.type === 1;
-    if (isPageReload) {
+    if (window.location.hash === '#aigc-review') {
+      history.replaceState(null, '', '#gallery');
+    } else if (isPageReload) {
       // Start a reload at the homepage before reading any chapter or project route.
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       const homeUrl = new URL(window.location.href);
@@ -52,14 +54,6 @@
     } else if (['#project-pixel-world', '#project-ai-posters'].includes(window.location.hash)) {
       document.documentElement.classList.add('project-route-pending');
     }
-    try {
-      if (isPageReload) {
-        sessionStorage.removeItem('portfolioReviewReturn');
-        sessionStorage.removeItem('portfolioReviewScrollY');
-      } else if (sessionStorage.getItem('portfolioReviewReturn') === 'gallery') {
-        document.documentElement.classList.add('review-return-pending');
-      }
-    } catch {}
   </script>
 
 
@@ -68,11 +62,6 @@
   <style>
     html { background: #050505; }
     html.project-route-pending #root { visibility: hidden; }
-    html.review-return-pending body {
-      opacity: 0;
-      pointer-events: none;
-      animation: review-return-fallback 1ms 2.5s forwards;
-    }
     @keyframes review-return-fallback {
       to { opacity: 1; pointer-events: auto; }
     }
@@ -147,8 +136,8 @@
       .aigc-gallery-card__preview { overflow: hidden; }
       .aigc-gallery-card__preview > img, .aigc-gallery-card__preview > video { opacity: 1; filter: brightness(.85); }
 </style>
-  <link rel="preload" href="./assets/site.css?v=41cffd0712" as="style">
-  <link rel="stylesheet" href="./assets/site.css?v=41cffd0712">
+  <link rel="preload" href="./assets/site.css?v=d8d0b3f5b8" as="style">
+  <link rel="stylesheet" href="./assets/site.css?v=d8d0b3f5b8">
 </head>
 <body class="bg-[#050505] text-white">
 
@@ -175,7 +164,7 @@
   <script src="./assets/hero/pattern-waves.js?v=0b470b080c" defer></script>
   <script src="./assets/hero/text-image-greeting.js?v=a003a6a29b" defer></script>
   <script src="./assets/hero/nav-glass-surface.js?v=66117b0109" defer></script>
-  <script src="./assets/site.js?v=b410309207" defer></script>
+  <script src="./assets/site.js?v=374ad91c72" defer></script>
 
 </body>
 </html>
